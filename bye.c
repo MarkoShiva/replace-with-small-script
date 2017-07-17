@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-void bye(const char* person);
 void bye(const char* person) {
   printf("Goodbye %s\n", person );
 }
