@@ -6,6 +6,8 @@ name=$2
 if [[ $# -le 1 ]]
 then
 	echo "###################################################################"
+	echo "Just for fun author in1t3r"
+	echo "###################################################################"
 	echo "run with single arguments, bye, hate, shitstorm"
 	exit 1
 fi
