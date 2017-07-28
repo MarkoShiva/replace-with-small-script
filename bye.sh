@@ -8,7 +8,7 @@ then
 	echo "###################################################################"
 	echo "Just for fun author in1t3r"
 	echo "###################################################################"
-	echo "run with single arguments, bye, hate, shitstorm"
+	echo "run with single arguments, bye, hate, kill, shitstorm"
 	exit 1
 fi
 if [[ $# == 2 ]]
@@ -20,6 +20,8 @@ then
 	hate)
 		echo "Go away ${name}, I hate you."
 		;;
+	kill)
+	    echo "I'm going to kill you ${name} and cut you into pieces"
 	shitstorm)
 		echo "You stupid fuck ${name} I'm going to kill you fry you and serve to your children"
 		;;
