@@ -1,0 +1,56 @@
+#!/bin/bash
+# usage: palindrome.sh string
+# script need one argument a string
+#####################################################################
+
+if [[ $# -eq 0 ]]
+then
+     echo -n "Enter a string to be checked: "
+     read string
+     exit 127
+else
+     string=$*
+fi
+
+# Do a little sed magic to remove none alnum characters and spaces and
+#convert to lowercase
+
+NewString="$(echo $string| sed 's/[^[:alnum:]]//g' | \
+tr '[:upper:]' '[:lower:]')"
+
+status=0
+
+# find the length of the string and middle value of the string
+len=${#NewString}
+mid=$((len/2))
+
+# Now we are looping and checking for the characters from each side of
+# the string
+
+for ((i=1;i<=mid;i++))
+do
+   c1=`echo $NewString|cut -c$i`           # get char from beginning
+   c2=`echo $NewString|cut -c$len`         # get last character of reminding string
+
+   if [[ $c1 != $c2 ]]  # check if characters are not equal then string is 
+		       # not palindrome and exit with status 1
+   then
+        status=1
+
+
+        break 2             # break N breaks out of N levels of loop.
+
+   fi
+
+   let len--
+done
+
+if [[ $status -eq 0 ]]
+then
+	echo "\"$string\" is a Palindrome"
+	exit $status
+else
+	echo "\"$string\" is not a Palindrome"
+	exit $status
+fi
+
